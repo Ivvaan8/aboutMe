@@ -18,12 +18,11 @@ final class PersonDescriptionVC: UIViewController {
     var nationality = ""
     var fullName = ""
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLabels()
         title = fullName
+        navigationItem.backButtonTitle = "Back"
 
     }
     //MARK: - Private Functions
