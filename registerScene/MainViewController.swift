@@ -2,7 +2,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var userNameTF: UITextField!
@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let registerVC = segue.destination as? EndRegistrViewController else { return }
-        registerVC.user = userNameTF.text
+        registerVC.user = userName
 
     }
     @IBAction func unwind(for segue: UIStoryboardSegue) {

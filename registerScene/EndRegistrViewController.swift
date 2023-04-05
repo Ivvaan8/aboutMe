@@ -2,22 +2,15 @@
 
 import UIKit
 
-class EndRegistrViewController: UIViewController {
+final class EndRegistrViewController: UIViewController {
     @IBOutlet weak var greetingLabel: UILabel!
-    var user: String!
+    var user = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.gradientBackground()
-        greetingLabel.text = "Welcome, \(user!)"
-
+        greetingLabel.text = "Welcome, \(user)"
     }
-    @IBAction func returnRegisterScene() {
-        
-    }
-    
-    
-
 }
 
 
