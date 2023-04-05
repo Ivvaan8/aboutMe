@@ -8,11 +8,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    let userName = "Alex"
-    let password = "1234"
-    let okAction = UIAlertAction(title: "OK", style: .default)
+    private let userName = "Alex"
+    private let password = "1234"
     
-
+    // MARK: - Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,24 +35,13 @@ class MainViewController: UIViewController {
         passwordTF.text = ""
     }
     
-    private func createAlertAction() -> UIAlertAction {
-        let deletePasswordAction = UIAlertAction(
-            title: "OK",
-            style: .cancel) { _ in
-                self.passwordTF.text = ""
-            }
-        return deletePasswordAction
+    @IBAction func userHelpButton(_ sender: UIButton) {
+        sender.tag == 0
+        ? createAlert(title: "Help", message: "Your name is \(userName)")
+        : createAlert(title: "Help", message: "Your password is \(password)")
     }
-
     
-    @IBAction func userNameButtonTapped() {
-        createAlert(title: "Help", message: "Your name is \(userName)", action: okAction)
-    }
 
-
-    @IBAction func passwordButtonTapped() {
-        createAlert(title: "Help", message: "Your password is \(password)", action: okAction)
-    }
 
 
     
@@ -63,27 +51,35 @@ class MainViewController: UIViewController {
             createAlert(
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
-                action: createAlertAction()
+                textField: passwordTF
             )
+        } else {
+            performSegue(withIdentifier: "welcomeScreen", sender: nil)
         }
     }
 }
 
 
 
+// MARK: - Create Alert Controller
+
 extension MainViewController {
-    private func createAlert(title: String, message: String, action: UIAlertAction) {
+    private func createAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
         )
-        alert.addAction(action)
+        let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in
+            textField?.text = ""
+        }
+        alert.addAction(okAction)
         present(alert, animated: true)
     }
 }
 
 
+// MARK: TEXTFIELD DELEGATE
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userNameTF {
