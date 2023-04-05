@@ -3,13 +3,13 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    let visitor = User.getInfoForUser()
 
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    private let userName = "Alex"
-    private let password = "1234"
+
     
     // MARK: - Override Methods
     
@@ -18,6 +18,8 @@ final class MainViewController: UIViewController {
         registerButton.layer.cornerRadius = 7
         passwordTF.delegate = self
         userNameTF.delegate = self
+        userNameTF.text = visitor.userName
+        passwordTF.text = visitor.userPassword
 
 
     }
@@ -27,8 +29,22 @@ final class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let registerVC = segue.destination as? EndRegistrViewController else { return }
-        registerVC.user = userName
+        guard let registerTabBarVC = segue.destination as? EntranceTabBarController else { return }
+        guard let viewContollers = registerTabBarVC.viewControllers else { return }
+        viewContollers.forEach { viewController in
+            if let firsVC = viewController as? GreetingViewController {
+                firsVC.user = visitor.userName
+                firsVC.personFullName = visitor.person.fullName
+            } else if let navigationVC = viewController as? UINavigationController {
+                guard let descriptionVC =  navigationVC.topViewController as? PersonDescriptionVC else { return }
+                descriptionVC.name = visitor.person.name
+                descriptionVC.surname = visitor.person.surname
+                descriptionVC.dateOfBirth = visitor.person.dateOfbirth
+                descriptionVC.nationality = visitor.person.counry.nationality
+                descriptionVC.placeOfBirth = visitor.person.counry.place
+                descriptionVC.fullName = visitor.person.fullName
+            }
+        }
 
     }
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -38,8 +54,8 @@ final class MainViewController: UIViewController {
     
     @IBAction func userHelpButton(_ sender: UIButton) {
         sender.tag == 0
-        ? createAlert(title: "Help", message: "Your name is \(userName)")
-        : createAlert(title: "Help", message: "Your password is \(password)")
+        ? createAlert(title: "Help", message: "Your name is \(visitor.userName)")
+        : createAlert(title: "Help", message: "Your password is \(visitor.userPassword)")
     }
     
 
@@ -48,7 +64,7 @@ final class MainViewController: UIViewController {
     
     
     @IBAction func loginButtonAction() {
-        if userNameTF.text != userName || passwordTF.text != password {
+        if userNameTF.text != visitor.userName || passwordTF.text != visitor.userPassword {
             createAlert(
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
