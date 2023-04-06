@@ -294,12 +294,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hRH-iI-jMy">
-                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <rect key="frame" x="16" y="116" width="361" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="GXl-9g-ahQ"/>
-                                    <constraint firstAttribute="height" constant="300" id="cZu-i4-gqH"/>
-                                </constraints>
                                 <string key="text">Уилл Смит родился 25 сентября 1968 г. в городе Филадельфия (американский штат Пенсильвания). Он воспитывался в семье школьного преподавателя Кэролайн и инженера Уилларда Кристофера. Когда ему было тринадцать лет, его родители решили расстаться. В дальнейшем и во взрослой жизни актёру пришлось столкнуться с разводом: в 1995 г. он разошёлся со своей первой женой по имени Шери Земпино. С ней он прожил в браке три года, у них есть общий ребёнок Уиллард Кристофер Смит III, который после развода остался с Шери. В дальнейшем Уилл Смитт решил связать судьбу со своей знакомой Джадой Пинкетт. Вторая супруга подарила ему сына Джейдена и дочь Уиллоу. Актёр уже успел сняться со своими детьми в кино.
 Творческую карьеру Уилл Смит начал в качестве музыканта. В 1980-х г. он становится всемирно известным как один из участников коллектива, работающего в стиле «хип-хоп». В процессе сотрудничества с группой Уилл получает «Грэмми» за лучшее исполнение рэпа. Начиная с 1990 г. он снимается в телевизионном сериале «Принц из Беверли-Хиллз» (1990-1996), исполняет в нём главную роль. Впоследствии он получает главную роль в комедийном боевике «Плохие парни» (1995). Этот фильм хорошо отразился на карьере Уилла Смита, ведь благодаря ему за ним закрепился статус звезды боевиков, благодаря которому актер востребован и по сей день. Это позволило ему сняться в таких громких блокбастерах, как «День независимости» (1996), «Люди в черном» (1997), «Враг государства» (1998) и «Дикий, дикий Вест» (1999). Причем ради роли в последнем фильме, Смит отказался от главной роли в «Матрице» (2000). «Дикий, дикий Вест» провалился в прокате, но о своем решении Смит не жалеет, так как считает, что Киану Ривз отлично смотрится в «Матрице».
 В начале 2000-х годов Уилл Смит решил сосредоточиться на более драматических ролях. Он отметился в таких драматических фильмах, как: «Легенда Багера Ванса» (2000), «Али» (2001), «В погоне за счастьем» (2006) и «Семь жизней» (2008). За роли в фильмах «Али» и «В погоне за счастьем» (2006) актер был номинирован на премию «Оскар». Но при этом он не забывал о ролях в комедиях и боевиках, благодаря которым он прославился. Так в период с 2000 по 2008 год, он снялся в таких фильмах, как: «Люди в чёрном 2» (2002), «Плохие парни 2» (2003), «Я, робот» (2004), «Правила съёма: Метод Хитча» (2005), «Я — легенда» (2007), «Хэнкок» (2008).
@@ -310,34 +306,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4o-PF-EIg">
-                                <rect key="frame" x="16" y="616" width="361" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Вернуться">
-                                    <color key="baseBackgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="scrollButtonAction" destination="2TD-mX-B1C" eventType="touchUpInside" id="1MM-IU-EIe"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H45-gX-uqL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="w4o-PF-EIg" firstAttribute="top" secondItem="hRH-iI-jMy" secondAttribute="bottom" constant="40" id="X9d-Ew-C84"/>
-                            <constraint firstItem="hRH-iI-jMy" firstAttribute="centerY" secondItem="0g6-4h-rHj" secondAttribute="centerY" id="YIj-bc-J1x"/>
-                            <constraint firstItem="hRH-iI-jMy" firstAttribute="width" secondItem="0g6-4h-rHj" secondAttribute="height" multiplier="25:71" id="YMk-el-QAV"/>
-                            <constraint firstItem="H45-gX-uqL" firstAttribute="trailing" secondItem="w4o-PF-EIg" secondAttribute="trailing" constant="16" id="ZuC-Af-cuv"/>
-                            <constraint firstItem="w4o-PF-EIg" firstAttribute="leading" secondItem="H45-gX-uqL" secondAttribute="leading" constant="16" id="jbo-aB-kHe"/>
-                            <constraint firstItem="hRH-iI-jMy" firstAttribute="centerX" secondItem="0g6-4h-rHj" secondAttribute="centerX" id="rpp-y0-bsq"/>
+                            <constraint firstItem="hRH-iI-jMy" firstAttribute="top" secondItem="H45-gX-uqL" secondAttribute="top" constant="20" id="1JT-CV-Ruj"/>
+                            <constraint firstItem="hRH-iI-jMy" firstAttribute="leading" secondItem="H45-gX-uqL" secondAttribute="leading" constant="16" id="HJn-Fx-Xsm"/>
+                            <constraint firstItem="H45-gX-uqL" firstAttribute="trailing" secondItem="hRH-iI-jMy" secondAttribute="trailing" constant="16" id="MXg-HE-xYK"/>
+                            <constraint firstItem="H45-gX-uqL" firstAttribute="bottom" secondItem="hRH-iI-jMy" secondAttribute="bottom" constant="16" id="qhR-al-E2M"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Уилл Смит" id="NDA-KJ-H0h">
                         <barButtonItem key="backBarButtonItem" title="Back" id="hMv-nt-MIM"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="biographyTF" destination="hRH-iI-jMy" id="1ed-8y-vL8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HZ-oe-z6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

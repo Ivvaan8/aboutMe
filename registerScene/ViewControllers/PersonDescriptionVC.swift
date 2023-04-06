@@ -34,11 +34,4 @@ final class PersonDescriptionVC: UIViewController {
         placeOfBirthLabel.text = placeOfBirth
         nationalityLabel.text = nationality
     }
-    
-    
-
-    
-    
-
-
 }

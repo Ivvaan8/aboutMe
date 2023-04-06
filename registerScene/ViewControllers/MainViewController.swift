@@ -3,11 +3,13 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    let visitor = User.getInfoForUser()
 
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    
+    let user = User.getInfoForUser()
+
     
 
     
@@ -18,8 +20,8 @@ final class MainViewController: UIViewController {
         registerButton.layer.cornerRadius = 7
         passwordTF.delegate = self
         userNameTF.delegate = self
-        userNameTF.text = visitor.userName
-        passwordTF.text = visitor.userPassword
+        userNameTF.text = user.userName
+        passwordTF.text = user.userPassword
 
 
     }
@@ -33,16 +35,16 @@ final class MainViewController: UIViewController {
         guard let viewContollers = registerTabBarVC.viewControllers else { return }
         viewContollers.forEach { viewController in
             if let firsVC = viewController as? GreetingViewController {
-                firsVC.user = visitor.userName
-                firsVC.personFullName = visitor.person.fullName
+                firsVC.user = user.userName
+                firsVC.personFullName = user.person.fullName
             } else if let navigationVC = viewController as? UINavigationController {
                 guard let descriptionVC =  navigationVC.topViewController as? PersonDescriptionVC else { return }
-                descriptionVC.name = visitor.person.name
-                descriptionVC.surname = visitor.person.surname
-                descriptionVC.dateOfBirth = visitor.person.dateOfbirth
-                descriptionVC.nationality = visitor.person.counry.nationality
-                descriptionVC.placeOfBirth = visitor.person.counry.place
-                descriptionVC.fullName = visitor.person.fullName
+                descriptionVC.name = user.person.name
+                descriptionVC.surname = user.person.surname
+                descriptionVC.dateOfBirth = user.person.dateOfbirth
+                descriptionVC.nationality = user.person.counry.nationality
+                descriptionVC.placeOfBirth = user.person.counry.place
+                descriptionVC.fullName = user.person.fullName
             }
         }
 
@@ -54,8 +56,8 @@ final class MainViewController: UIViewController {
     
     @IBAction func userHelpButton(_ sender: UIButton) {
         sender.tag == 0
-        ? createAlert(title: "Help", message: "Your name is \(visitor.userName)")
-        : createAlert(title: "Help", message: "Your password is \(visitor.userPassword)")
+        ? createAlert(title: "Help", message: "Your name is \(user.userName)")
+        : createAlert(title: "Help", message: "Your password is \(user.userPassword)")
     }
     
 
@@ -64,7 +66,7 @@ final class MainViewController: UIViewController {
     
     
     @IBAction func loginButtonAction() {
-        if userNameTF.text != visitor.userName || passwordTF.text != visitor.userPassword {
+        if userNameTF.text != user.userName || passwordTF.text != user.userPassword {
             createAlert(
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",

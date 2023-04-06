@@ -9,13 +9,7 @@ struct User {
     static func getInfoForUser() -> User {
         User(userName: "Alexey",
              userPassword: "1234" ,
-             person: Person(
-                name: "Уилл",
-                surname: "Смит",
-                dateOfbirth: "25 сентября 1968",
-                photo: "person",
-                counry: Country(place: "Филадельфия", nationality: "США")
-             )
+             person: Person.getPerson()
         )
     }
 }
@@ -30,6 +24,9 @@ struct Person {
     var fullName: String {
         name + " " + surname
     }
+    static func getPerson() ->Person {
+        Person(name: "Уилл", surname: "Смит", dateOfbirth: "25 сентября 1968", photo: "person", counry: Country.getCountry() )
+    }
     
 
 }
@@ -37,4 +34,8 @@ struct Person {
 struct Country {
     let place: String
     let nationality: String
+     
+    static func getCountry() -> Country {
+        Country(place: "Филадельфия", nationality: "США")
+    }
 }
