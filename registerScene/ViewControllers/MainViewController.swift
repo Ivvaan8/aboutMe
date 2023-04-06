@@ -8,7 +8,7 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    let user = User.getInfoForUser()
+    private let user = User.getInfoForUser()
 
     
 
@@ -35,17 +35,10 @@ final class MainViewController: UIViewController {
         guard let viewContollers = registerTabBarVC.viewControllers else { return }
         viewContollers.forEach { viewController in
             if let firsVC = viewController as? GreetingViewController {
-                firsVC.user = user.userName
-                firsVC.personFullName = user.person.fullName
+                firsVC.user = user
             } else if let navigationVC = viewController as? UINavigationController {
                 guard let descriptionVC =  navigationVC.topViewController as? PersonDescriptionVC else { return }
                 descriptionVC.user = user
-//                descriptionVC.name = user.person.name
-//                descriptionVC.surname = user.person.surname
-//                descriptionVC.dateOfBirth = user.person.dateOfbirth
-//                descriptionVC.nationality = user.person.counry.nationality
-//                descriptionVC.placeOfBirth = user.person.counry.place
-//                descriptionVC.fullName = user.person.fullName
             }
         }
 
