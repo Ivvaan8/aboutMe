@@ -39,12 +39,13 @@ final class MainViewController: UIViewController {
                 firsVC.personFullName = user.person.fullName
             } else if let navigationVC = viewController as? UINavigationController {
                 guard let descriptionVC =  navigationVC.topViewController as? PersonDescriptionVC else { return }
-                descriptionVC.name = user.person.name
-                descriptionVC.surname = user.person.surname
-                descriptionVC.dateOfBirth = user.person.dateOfbirth
-                descriptionVC.nationality = user.person.counry.nationality
-                descriptionVC.placeOfBirth = user.person.counry.place
-                descriptionVC.fullName = user.person.fullName
+                descriptionVC.user = user
+//                descriptionVC.name = user.person.name
+//                descriptionVC.surname = user.person.surname
+//                descriptionVC.dateOfBirth = user.person.dateOfbirth
+//                descriptionVC.nationality = user.person.counry.nationality
+//                descriptionVC.placeOfBirth = user.person.counry.place
+//                descriptionVC.fullName = user.person.fullName
             }
         }
 
@@ -109,6 +110,7 @@ extension MainViewController: UITextFieldDelegate {
         return true
     }
 }
+
 
 
 

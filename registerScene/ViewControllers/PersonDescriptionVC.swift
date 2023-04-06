@@ -11,27 +11,23 @@ final class PersonDescriptionVC: UIViewController {
     @IBOutlet weak var dateOfBirthLabel: UILabel!
     @IBOutlet weak var surnameLabel: UILabel!
     
-    var name = ""
-    var surname = ""
-    var dateOfBirth = ""
-    var placeOfBirth = ""
-    var nationality = ""
-    var fullName = ""
+    var user: User?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLabels()
-        title = fullName
+        title = user?.person.fullName
         navigationItem.backButtonTitle = "Back"
 
     }
     //MARK: - Private Functions
     
     private func configureLabels() {
-        nameLabel.text = name
-        surnameLabel.text = surname
-        dateOfBirthLabel.text = dateOfBirth
-        placeOfBirthLabel.text = placeOfBirth
-        nationalityLabel.text = nationality
+        nameLabel.text = user?.person.name
+        surnameLabel.text = user?.person.surname
+        dateOfBirthLabel.text = user?.person.dateOfbirth
+        placeOfBirthLabel.text = user?.person.counry.place
+        nationalityLabel.text = user?.person.counry.nationality
     }
 }
